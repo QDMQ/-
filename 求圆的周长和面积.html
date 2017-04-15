@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+请设置一个对象圆，圆有一个属性，半径，两个方法：1，求周长  2，求面积
+<script>
+    //第一种方法
+    var i=Math.PI;
+    var r=prompt("请输入圆的半径");
+    var circle={
+        radius:r,
+        permeter:function () {
+            console.log("圆的周长:" + 2 * i * r);
+        },
+        area:function () {
+            console.log("圆的面积:"+ i * r * r);
+        }
+    };
+    circle.permeter();
+    circle.area();
+    console.log("-------------------------");
+
+    //第二种方法
+    function Circle(r) {
+        this.r=r;
+        this.permeter=function () {
+            return 2 * Math.PI * r;
+        };
+        this.area=function () {
+            return Math.PI * r * r;
+        }
+    }
+    var f=new Circle(10);
+    console.log( f.permeter() );
+    console.log( f.area() );
+    console.log("-------------------------");
+
+    //第三种方法
+    function Circle(r) {
+        this.r=r;
+    }
+    Circle.prototype.permeter=function () {
+        return 2 * Math.PI * r;
+    }
+    Circle.prototype.area=function () {
+        return Math.PI * r * r;
+    }
+    var y=new Circle(10);
+    console.log( y.permeter() );
+    console.log( y.area() );
+</script>
+</body>
+</html>
